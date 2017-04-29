@@ -1,5 +1,6 @@
 var FlashFilter = React.createClass({
     render: function () {
+        console.log('Render Flash Filter...');
         return (
             <div>A way to filter the list of Flashes would come here.</div>
         )
@@ -12,7 +13,7 @@ var FlashRow = React.createClass({
         var style = {
             width: '50px'
         };
-
+        console.log('Render Flash Row...');
         return (
             <tr>
                 <td>{this.props.flash.id}</td>
@@ -31,6 +32,7 @@ var FlashTable = React.createClass({
         var flashRows = this.props.flashes.map(function (flash) {
             return <FlashRow key={flash.id} flash={flash} />
         });
+        console.log('Render Flash Table...');
         return (
             <table>
                 <thead>
@@ -51,6 +53,7 @@ var FlashTable = React.createClass({
 
 var FlashAdd = React.createClass({
     render: function () {
+        console.log('Render Flash Add...');
         return (
             <div>A form to add a new Flash would come here.</div>
         )
@@ -71,13 +74,28 @@ var FlashList = React.createClass({
         return { flashes: Flashes }
     },
 
+    test: function () {
+        var currentId = this.state.flashes.length + 1;
+        this.addFlash({ id: currentId, avata: 'http://img08.deviantart.net/1995/i/2016/353/f/5/theflash__savitar_by_darklitria-das66a0.png', flashName: 'Savitar', realName: 'Unknown' });
+    },
+
+    addFlash: function (flash) {
+        var newFlashes = this.state.flashes.slice();
+        newFlashes.push(flash);
+        this.setState({
+            flashes: newFlashes
+        });
+    },
+
     render: function () {
+        console.log('Render Flash List...');
         return (
             <div>
                 <h1>The Flash Character</h1>
                 <FlashFilter />
                 <hr />
                 <FlashTable flashes={this.state.flashes} />
+                <button onClick={this.test}>Add FLash</button>
                 <hr />
                 <FlashAdd />
             </div>
