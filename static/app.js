@@ -14,6 +14,10 @@ var FlashFilter = React.createClass({
 var FlashRow = React.createClass({
     displayName: 'FlashRow',
 
+    handleClick: function () {
+        this.props.deleteFlash(this.props.flash);
+    },
+
     render: function () {
         var style = {
             width: '50px'
@@ -41,6 +45,15 @@ var FlashRow = React.createClass({
                 'td',
                 null,
                 this.props.flash.realName
+            ),
+            React.createElement(
+                'td',
+                null,
+                React.createElement(
+                    'button',
+                    { onClick: this.handleClick, type: 'button' },
+                    ' Delete '
+                )
             )
         );
     }
@@ -50,8 +63,9 @@ var FlashTable = React.createClass({
     displayName: 'FlashTable',
 
     render: function () {
+        var delFlash = this.props.deleteFlash;
         var flashRows = this.props.flashes.map(function (flash) {
-            return React.createElement(FlashRow, { key: flash.id, flash: flash });
+            return React.createElement(FlashRow, { key: flash.id, flash: flash, deleteFlash: delFlash });
         });
         console.log('Render Flash Table...');
         return React.createElement(
@@ -97,12 +111,32 @@ var FlashTable = React.createClass({
 var FlashAdd = React.createClass({
     displayName: 'FlashAdd',
 
+    handleSubmit: function (e) {
+        e.preventDefault();
+        var form = document.forms.addFlash;
+        this.props.addFlash({ avata: form.avata.value, flashName: form.flashName.value, realName: form.realName.value });
+        form.avata.value = '';
+        form.flashName.value = '';
+        form.realName.value = '';
+    },
+
     render: function () {
         console.log('Render Flash Add...');
         return React.createElement(
             'div',
             null,
-            'A form to add a new Flash would come here.'
+            React.createElement(
+                'form',
+                { name: 'addFlash' },
+                React.createElement('input', { type: 'text', name: 'avata', placeholder: 'Url' }),
+                React.createElement('input', { type: 'text', name: 'flashName', placeholder: 'Flash Name' }),
+                React.createElement('input', { type: 'text', name: 'realName', placeholder: 'Real Name' }),
+                React.createElement(
+                    'button',
+                    { onClick: this.handleSubmit },
+                    'Add Flash'
+                )
+            )
         );
     }
 });
@@ -116,17 +150,24 @@ var FlashList = React.createClass({
         return { flashes: Flashes };
     },
 
-    test: function () {
-        var currentId = this.state.flashes.length + 1;
-        this.addFlash({ id: currentId, avata: 'http://img08.deviantart.net/1995/i/2016/353/f/5/theflash__savitar_by_darklitria-das66a0.png', flashName: 'Savitar', realName: 'Unknown' });
-    },
-
     addFlash: function (flash) {
+        flash.id = this.state.flashes.length + 1;
         var newFlashes = this.state.flashes.slice();
         newFlashes.push(flash);
         this.setState({
             flashes: newFlashes
         });
+    },
+
+    deleteFlash: function (flash) {
+        var newFlashes = this.state.flashes.slice();
+        var idxFlash = newFlashes.indexOf(flash);
+        if (-1 != idxFlash) {
+            newFlashes.splice(idxFlash, 1);
+            this.setState({
+                flashes: newFlashes
+            });
+        }
     },
 
     render: function () {
@@ -141,14 +182,9 @@ var FlashList = React.createClass({
             ),
             React.createElement(FlashFilter, null),
             React.createElement('hr', null),
-            React.createElement(FlashTable, { flashes: this.state.flashes }),
-            React.createElement(
-                'button',
-                { onClick: this.test },
-                'Add FLash'
-            ),
+            React.createElement(FlashTable, { flashes: this.state.flashes, deleteFlash: this.deleteFlash }),
             React.createElement('hr', null),
-            React.createElement(FlashAdd, null)
+            React.createElement(FlashAdd, { addFlash: this.addFlash })
         );
     }
 });
