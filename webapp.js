@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 const port = 4869;
 
 var Flashes = [
@@ -12,14 +13,18 @@ var Flashes = [
 ];
 
 app.use(express.static('static'));
-
-app.get('/', function (req, res) {
-    console.log('Dang route den /');
-    res.send('Server is running...');
-});
+app.use(bodyParser.json()); // Parse json body
+app.use(bodyParser.urlencoded({ extended: true })); // Parse urlencoded body
 
 app.get('/api/flashes', function (req, res) {
-    res.status(200).send(JSON.stringify(Flashes));
+    res.status(200).send({ data: Flashes });
+});
+
+app.post('/api/flashes', function (req, res) {
+    var newFlash = req.body;
+    newFlash.id = Flashes.length + 1;
+    Flashes.push(newFlash);
+    res.json(newFlash);
 });
 
 var server = app.listen(port, function () {

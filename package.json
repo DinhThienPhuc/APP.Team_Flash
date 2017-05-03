@@ -1,20 +1,22 @@
 {
-    "name": "bug-tracker",
-    "version": "1.0.0",
-    "description": "",
-    "main": "webapp.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon webapp.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "express": "^4.15.2",
-        "react": "^15.5.4",
-        "react-dom": "^15.5.4"
-    },
-    "devDependencies": {
-        "babel-preset-react": "^6.24.1"
-    }
+  "name": "bug-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon webapp.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.24.1"
+  }
 }
