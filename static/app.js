@@ -64,7 +64,8 @@ var FlashTable = React.createClass({
 
     render: function () {
         var delFlash = this.props.deleteFlash;
-        var flashRows = this.props.flashes.map(function (flash) {
+        var flashRows = this.props.flashes.map(function (flash, idx) {
+            flash.id = idx + 1;
             return React.createElement(FlashRow, { key: flash.id, flash: flash, deleteFlash: delFlash });
         });
         console.log('Render Flash Table...');
@@ -148,6 +149,10 @@ var FlashList = React.createClass({
         return { flashes: [] };
     },
 
+    renumber: function (flash) {
+        // do something
+    },
+
     addFlash: function (flash) {
         $.ajax({
             url: '/api/flashes',
@@ -167,6 +172,18 @@ var FlashList = React.createClass({
     },
 
     deleteFlash: function (flash) {
+        // $.ajax({
+        //     url: '/api/flashes',
+        //     type: 'DELETE',
+        //     contentType: 'application/json',
+        //     data: JSON.stringify(flash),
+        //     success: function (result) {
+        //         console.log('Success Delete: ', result);
+        //     },
+        //     error: function (err) {
+        //         console.log('Error: ', err);
+        //     }
+        // });
         var newFlashes = this.state.flashes.slice();
         var idxFlash = newFlashes.indexOf(flash);
         if (-1 != idxFlash) {
