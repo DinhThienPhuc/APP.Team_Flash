@@ -1,4 +1,5 @@
 module.exports = {
+    // insert data must form in array
     insertDoc: async (data, collection) => {
         return await collection.insertMany(data, collection);
     },

@@ -8,7 +8,6 @@ class Body extends React.Component {
     constructor(props) {
         super(props);
         this.state = { heroes: [] };
-        this.deleteHero = this.deleteHero.bind(this);
         this.addHero = this.addHero.bind(this);
     }
 
@@ -17,14 +16,14 @@ class Body extends React.Component {
     }
 
     loadData() {
-        $.ajax('/heroes').done(result => {
+        $.ajax('/api/heroes').done(result => {
             this.setState({ heroes: result.data });
         });
     }
 
     addHero(hero) {
         $.ajax({
-            url: '/heroes',
+            url: '/api/heroes',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(hero),
@@ -40,24 +39,6 @@ class Body extends React.Component {
         });
     }
 
-    deleteHero(hero) {
-        $.ajax({
-            url: '/heroes',
-            type: 'DELETE',
-            contentType: 'application/json',
-            data: JSON.stringify(hero),
-            success: (result) => {
-                console.log('ket qua tra ve sau khi xoa 1 em: ', result);
-                // this.setState({
-                //     heroes: result
-                // });
-            },
-            error: (err) => {
-                console.log('Error: ', err);
-            }
-        });
-    }
-
     render() {
         console.log('Render Hero List...');
         return (
@@ -66,7 +47,7 @@ class Body extends React.Component {
                 <Add addHero={this.addHero} />
                 <Search />
                 <hr />
-                <Container heroes={this.state.heroes} deleteHero={this.deleteHero} />
+                <Container heroes={this.state.heroes} />
             </div>
         )
     }
