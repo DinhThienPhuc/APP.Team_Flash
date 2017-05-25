@@ -7,7 +7,13 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Home from './pages/Home.js';
 import NotFound from './pages/NotFound.js';
 
-/*const HomePage = () => (
+// Import Material-UI Theme
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
+const HomePage = () => (
     <MuiThemeProvider>
         <Home />
     </MuiThemeProvider>
@@ -17,14 +23,14 @@ const NotFoundPage = () => {
     <MuiThemeProvider>
         <NotFound />
     </MuiThemeProvider>
-}*/
+}
 
 ReactDOM.render(
     (
         <Router>
             <Switch>
-                <Route path="/" component={Home} />
-                <Route path="*" component={NotFound} />
+                <Route path="/" component={HomePage} />
+                <Route path="*" component={NotFoundPage} />
             </Switch>
         </Router>
     ),

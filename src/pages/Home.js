@@ -5,7 +5,7 @@ import $ from 'jquery';
 // Import components
 import Add from '../components/Add.js';
 import Search from '../components/Search.js';
-import Container from '../components/Container.js';
+import ContainerHero from '../components/ContainerHero.js';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ export default class Home extends React.Component {
                 <Add addHero={this.addHero} />
                 <Search />
                 <hr />
-                <Container heroes={this.state.heroes} />
+                <ContainerHero heroes={this.state.heroes} />
             </div>
         )
     }
