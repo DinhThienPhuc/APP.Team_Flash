@@ -1,14 +1,30 @@
+// Import React modules
 import React from 'react';
 import $ from 'jquery';
-import Add from './Add.js';
-import Search from './Search.js';
-import Container from './Container.js';
 
-class Body extends React.Component {
+// Import components
+import Add from '../components/Add.js';
+import Search from '../components/Search.js';
+import Container from '../components/Container.js';
+
+export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = { heroes: [] };
         this.addHero = this.addHero.bind(this);
+    }
+
+    render() {
+        console.log('Render Hero List...');
+        return (
+            <div>
+                <h1>CW TV Show</h1>
+                <Add addHero={this.addHero} />
+                <Search />
+                <hr />
+                <Container heroes={this.state.heroes} />
+            </div>
+        )
     }
 
     componentDidMount() {
@@ -38,19 +54,4 @@ class Body extends React.Component {
             }
         });
     }
-
-    render() {
-        console.log('Render Hero List...');
-        return (
-            <div>
-                <h1>CW TV Show</h1>
-                <Add addHero={this.addHero} />
-                <Search />
-                <hr />
-                <Container heroes={this.state.heroes} />
-            </div>
-        )
-    }
 }
-
-export default Body;

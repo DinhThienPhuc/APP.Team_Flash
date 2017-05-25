@@ -1,8 +1,32 @@
+// Import React modules
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Body from './components/Body.js';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
+// Import Components
+import Home from './pages/Home.js';
+import NotFound from './pages/NotFound.js';
+
+/*const HomePage = () => (
+    <MuiThemeProvider>
+        <Home />
+    </MuiThemeProvider>
+);
+
+const NotFoundPage = () => {
+    <MuiThemeProvider>
+        <NotFound />
+    </MuiThemeProvider>
+}*/
 
 ReactDOM.render(
-    <Body />,
+    (
+        <Router>
+            <Switch>
+                <Route path="/" component={Home} />
+                <Route path="*" component={NotFound} />
+            </Switch>
+        </Router>
+    ),
     document.getElementById('root')
 );

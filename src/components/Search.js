@@ -6,13 +6,6 @@ export default class Search extends React.Component {
         this.handleKeyUp = this.handleKeyUp.bind(this);
     }
 
-    handleKeyUp(e) {
-        e.preventDefault();
-        var formSearch = document.forms.searchFlash;
-        var data = formSearch.search.value;
-        console.log('data in input box: ', data);
-    }
-
     render() {
         return (
             <div>
@@ -21,5 +14,12 @@ export default class Search extends React.Component {
                 </form>
             </div>
         )
+    }
+
+    handleKeyUp(e) {
+        e.preventDefault();
+        var formSearch = document.forms.searchFlash;
+        var data = formSearch.search.value;
+        console.log('data in input box: ', data);
     }
 }

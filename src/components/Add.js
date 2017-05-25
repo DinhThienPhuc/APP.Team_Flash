@@ -6,15 +6,6 @@ export default class Add extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        var form = document.forms.addHero;
-        this.props.addHero({ heroName: form.heroName.value, realName: form.realName.value, avata: form.avata.value });
-        form.avata.value = '';
-        form.heroName.value = '';
-        form.realName.value = '';
-    }
-
     render() {
         console.log('Render Hero Add...');
         return (
@@ -27,5 +18,14 @@ export default class Add extends React.Component {
                 </form>
             </div>
         )
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        var form = document.forms.addHero;
+        this.props.addHero({ heroName: form.heroName.value, realName: form.realName.value, avata: form.avata.value });
+        form.avata.value = '';
+        form.heroName.value = '';
+        form.realName.value = '';
     }
 }

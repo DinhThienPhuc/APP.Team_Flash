@@ -7,17 +7,17 @@ const url = 'mongodb://localhost:27017/theflash';
 const collectionName = 'speedsters';
 
 const data = [
-    { flashName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://media.esports.vn/images/images_news/images/PC%20-%20Console/the-flash-trong-se-the-nao-trong-justice-league-6.jpg' },
-    { flashName: 'Zoom', realName: 'Hunter Zolomon', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124412.jpeg' },
-    { flashName: 'The Flash Earth-3', realName: 'Jay Garrick', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124414.jpeg' },
-    { flashName: 'Black Flash', realName: 'Hunter Zolomon', avata: 'http://img1.reactor.cc/pics/post/full/The-Flash-%28%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%29-Arrowverse-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-3121877.jpeg' },
-    { flashName: 'Trajectory', realName: 'Eliza Harmon', avata: 'http://img1.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124413.jpeg' },
-    { flashName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://img0.reactor.cc/pics/post/The-Flash-%28%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%29-Arrowverse-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-3133992.jpeg' },
-    { flashName: 'Reverse Flash', realName: 'Eobard Thawne', avata: 'http://img1.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124411.jpeg' },
-    { flashName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124410.jpeg' },
-    { flashName: 'Zoom', realName: 'Hunter Zolomon', avata: 'http://media.esports.vn/images/images_news/images/quanghuy/CmiIdVsVIAEA_o7.jpg' },
-    { flashName: 'Godspeed', realName: 'Unknown', avata: 'http://media.esports.vn/images/images_news/images/quanghuy/CmiEEj4UMAExKDh.jpg' },
-    { flashName: 'Reverse Flash', realName: 'Eobard Thawne', avata: 'http://media.esports.vn/images/images_news/images/PC%20-%20Console/the-flash-trong-se-the-nao-trong-justice-league-8.jpg' },
+    { heroName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://media.esports.vn/images/images_news/images/PC%20-%20Console/the-flash-trong-se-the-nao-trong-justice-league-6.jpg' },
+    { heroName: 'Zoom', realName: 'Hunter Zolomon', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124412.jpeg' },
+    { heroName: 'The Flash Earth-3', realName: 'Jay Garrick', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124414.jpeg' },
+    { heroName: 'Black Flash', realName: 'Hunter Zolomon', avata: 'http://img1.reactor.cc/pics/post/full/The-Flash-%28%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%29-Arrowverse-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-3121877.jpeg' },
+    { heroName: 'Trajectory', realName: 'Eliza Harmon', avata: 'http://img1.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124413.jpeg' },
+    { heroName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://img0.reactor.cc/pics/post/The-Flash-%28%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%29-Arrowverse-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-3133992.jpeg' },
+    { heroName: 'Reverse Flash', realName: 'Eobard Thawne', avata: 'http://img1.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124411.jpeg' },
+    { heroName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124410.jpeg' },
+    { heroName: 'Zoom', realName: 'Hunter Zolomon', avata: 'http://media.esports.vn/images/images_news/images/quanghuy/CmiIdVsVIAEA_o7.jpg' },
+    { heroName: 'Godspeed', realName: 'Unknown', avata: 'http://media.esports.vn/images/images_news/images/quanghuy/CmiEEj4UMAExKDh.jpg' },
+    { heroName: 'Reverse Flash', realName: 'Eobard Thawne', avata: 'http://media.esports.vn/images/images_news/images/PC%20-%20Console/the-flash-trong-se-the-nao-trong-justice-league-8.jpg' },
 ];
 
 MongoClient.connect(url, function (err, db) {
