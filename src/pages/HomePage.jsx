@@ -1,28 +1,25 @@
-// Import React modules
+// Import modules
 import React from 'react';
 import $ from 'jquery';
 
-// Import components
-import Add from '../components/Add.js';
-import Search from '../components/Search.js';
-import ContainerHero from '../components/ContainerHero.js';
+// Import Components & Containers
+import Add from '../components/Add/Add.jsx';
+import Search from '../components/Search/Search.jsx';
+import HeroContainer from '../containers/HeroContainer/HeroContainer.jsx';
+import NavBarContainer from '../containers/NavBarContainer/NavBarContainer.jsx';
 
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = { heroes: [] };
-        this.addHero = this.addHero.bind(this);
     }
 
     render() {
         console.log('Render Hero List...');
         return (
             <div>
-                <h1>CW TV Show</h1>
-                <Add addHero={this.addHero} />
-                <Search />
-                <hr />
-                <ContainerHero heroes={this.state.heroes} />
+                <NavBarContainer />
+                <HeroContainer heroes={this.state.heroes} />
             </div>
         )
     }

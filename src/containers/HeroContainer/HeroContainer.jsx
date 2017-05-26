@@ -1,13 +1,18 @@
+// Import modules
 import React from 'react';
-import CardHero from './CardHero.js';
 import StackGrid from 'react-stack-grid';
-import { Row, Col } from 'react-grid-system';
 
-export default class ContainerHero extends React.Component {
+// Import Components & Containers
+import CardHero from '../../components/CardHero/CardHero.jsx';
+
+// Import Style
+import Style from './style.js';
+
+export default class HeroContainer extends React.Component {
     render() {
         console.log('Render Hero Table...');
         return (
-            <StackGrid columnWidth={245} gutterWidth={10} gutterHeight={30}>
+            <StackGrid columnWidth={245} gutterWidth={10} gutterHeight={30} style={Style}>
                 {this.props.heroes.map(function (hero) {
                     return <CardHero key={hero._id} hero={hero} />;
                 })}

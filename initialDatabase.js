@@ -6,18 +6,82 @@ const assert = require('assert');
 const url = 'mongodb://localhost:27017/theflash';
 const collectionName = 'speedsters';
 
+const avatarShow = {
+    theFlash: 'https://maxcdn.icons8.com/Share/icon/Cinema//the_flash_sign1600.png',
+    greenArrow: 'https://s-media-cache-ak0.pinimg.com/originals/cc/ec/12/ccec12f2ab02551b6207da5c3e0171b6.png',
+    batman: 'http://www.clipartbest.com/cliparts/niB/BpX/niBBpX8xT.svg',
+    spiderman: 'https://d30y9cdsu7xlg0.cloudfront.net/png/52601-200.png',
+    deadpool: 'http://icanbecreative.com/resources/files/articles/deadpool-movie-photoshop-tutorial/deadpool-movie-logo-photoshop-tutorial.jpg',
+    ironman: 'http://goldwallpapers.com/uploads/posts/iron-man-logo-wallpaper/iron_man_logo_wallpaper_010.jpg',
+}
+
 const data = [
-    { heroName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://media.esports.vn/images/images_news/images/PC%20-%20Console/the-flash-trong-se-the-nao-trong-justice-league-6.jpg' },
-    { heroName: 'Zoom', realName: 'Hunter Zolomon', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124412.jpeg' },
-    { heroName: 'The Flash Earth-3', realName: 'Jay Garrick', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124414.jpeg' },
-    { heroName: 'Black Flash', realName: 'Hunter Zolomon', avata: 'http://img1.reactor.cc/pics/post/full/The-Flash-%28%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%29-Arrowverse-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-3121877.jpeg' },
-    { heroName: 'Trajectory', realName: 'Eliza Harmon', avata: 'http://img1.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124413.jpeg' },
-    { heroName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://img0.reactor.cc/pics/post/The-Flash-%28%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%29-Arrowverse-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-3133992.jpeg' },
-    { heroName: 'Reverse Flash', realName: 'Eobard Thawne', avata: 'http://img1.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124411.jpeg' },
-    { heroName: 'Scarlet Speedster', realName: 'Barry Allen', avata: 'http://img0.reactor.cc/pics/post/DC-Gif-DC-Comics-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%9F%D0%9E%D0%99%D0%9B%D0%95%D0%A0-3124410.jpeg' },
-    { heroName: 'Zoom', realName: 'Hunter Zolomon', avata: 'http://media.esports.vn/images/images_news/images/quanghuy/CmiIdVsVIAEA_o7.jpg' },
-    { heroName: 'Godspeed', realName: 'Unknown', avata: 'http://media.esports.vn/images/images_news/images/quanghuy/CmiEEj4UMAExKDh.jpg' },
-    { heroName: 'Reverse Flash', realName: 'Eobard Thawne', avata: 'http://media.esports.vn/images/images_news/images/PC%20-%20Console/the-flash-trong-se-the-nao-trong-justice-league-8.jpg' },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/fa/ba/af/fabaaff573814b63825cf0fe4dc659ad.jpg',
+        show: 'Batman',
+        subtitle: 'Arkham Knight',
+        avatar: avatarShow.batman
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/bb/56/a7/bb56a783cd8bac588c39d23b8199bcd3.jpg',
+        show: 'The Flash',
+        subtitle: 'Zoom',
+        avatar: avatarShow.theFlash
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/f1/d6/8b/f1d68b758465483675ca5ee24696555b.jpg',
+        show: 'Deadpool',
+        subtitle: 'High-five',
+        avatar: avatarShow.deadpool
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/64/b6/d0/64b6d09e898ec056c7e6f26723332aab.jpg',
+        show: 'Green Arrow',
+        subtitle: 'Oliver Queen',
+        avatar: avatarShow.greenArrow
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/236x/2c/ae/2d/2cae2d8218035963a4927702f1ed2122.jpg',
+        show: 'Deadpool',
+        subtitle: 'Wade Wilson',
+        avatar: avatarShow.deadpool
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/originals/fe/79/90/fe79903cc2106aa8b44a72b5f18bf543.jpg',
+        show: 'Batman',
+        subtitle: 'Bruce Wayne',
+        avatar: avatarShow.batman
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/236x/73/68/f9/7368f96933e5ac8ca383e237b58f446b.jpg',
+        show: 'Ironman',
+        subtitle: 'Tony Stark',
+        avatar: avatarShow.ironman
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/70/16/22/70162283f2f549be580d0587ed493417.jpg',
+        show: 'The Flash',
+        subtitle: 'Barry Allen',
+        avatar: avatarShow.theFlash
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/31/b9/b8/31b9b8abbbb78509c73cd157bdc4d709.jpg',
+        show: 'Ironman',
+        subtitle: 'Ultron',
+        avatar: avatarShow.ironman
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/34/7d/17/347d172b25e83fb767e9f516a2ab089a.jpg',
+        show: 'Ironman',
+        subtitle: 'Mark-45',
+        avatar: avatarShow.ironman
+    },
+    {
+        image: 'https://s-media-cache-ak0.pinimg.com/564x/96/fd/3b/96fd3b669322f4f4db1af835b8a097cf.jpg',
+        show: 'Green Arrow',
+        subtitle: 'Team Arrow',
+        avatar: avatarShow.greenArrow
+    }
 ];
 
 MongoClient.connect(url, function (err, db) {

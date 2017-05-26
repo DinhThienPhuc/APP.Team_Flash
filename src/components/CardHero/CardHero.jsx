@@ -1,5 +1,9 @@
+// Import modules
 import React from 'react';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+
+// Import Style
+import Style from './style.js';
 
 export default class CardHero extends React.Component {
     constructor(props) {
@@ -11,26 +15,16 @@ export default class CardHero extends React.Component {
     }
 
     render() {
-        const imageStyle = {
-            borderRadius: '8px',
-            maxWidth: '100%',
-            height: 'auto'
-        }
-
-        const cardMediaStyle = {
-            padding: '8px'
-        }
-
         console.log('Render hero Row...');
         return (
             <Card onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} style={this.style()} >
-                <CardMedia style={cardMediaStyle}>
-                    <img src={this.props.hero.avata} style={imageStyle} />
+                <CardMedia style={Style.cardMedia}>
+                    <img src={this.props.hero.image} style={Style.image} />
                 </CardMedia>
                 <CardHeader
-                    title="CW TV Show"
-                    subtitle="The Flash"
-                    avatar={this.props.hero.avata}
+                    title={this.props.hero.show}
+                    subtitle={this.props.hero.subtitle}
+                    avatar={this.props.hero.avatar}
                 />
             </Card>
         )
@@ -45,11 +39,11 @@ export default class CardHero extends React.Component {
         this.setState({ hovered: false });
     }
 
-    style() {
+    style()  {
         if (this.state.hovered) {
-            return { boxShadow: 'none', borderRadius: '8px', backgroundColor: '#f2f2f2', cursor: 'pointer' }
+            return Style.hoveredCard;
         } else {
-            return { boxShadow: 'none' }
+            return Style.unhoveredCard;
         }
     }
 }
