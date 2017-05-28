@@ -1,7 +1,13 @@
 module.exports = {
     NavBar: {
-        backgroundColor: 'grey',
-        // alignItems: 'center', // doesn't work
-        justifyContent: 'center', // doesn't work
+        position: "fixed",
+        top: '0',
+        zIndex: '1101',
+        backgroundColor: '#ffffff',
+        borderBottom: '1px solid #efefef',
+        marginLeft: '-8px'
+    },
+    Nav: {
+        marginRight: '10px'
     }
 }

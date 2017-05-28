@@ -12,10 +12,17 @@ export default class HeroContainer extends React.Component {
     render() {
         console.log('Render Hero Table...');
         return (
-            <StackGrid columnWidth={245} gutterWidth={10} gutterHeight={30} style={Style}>
-                {this.props.heroes.map(function (hero) {
-                    return <CardHero key={hero._id} hero={hero} />;
-                })}
+            <StackGrid
+                columnWidth={245}
+                gutterWidth={10}
+                gutterHeight={30}
+                style={Style.Hero}>
+                {this
+                    .props
+                    .heroes
+                    .map(function (hero) {
+                        return <CardHero key={hero._id} hero={hero}/>;
+                    })}
             </StackGrid>
         )
     }

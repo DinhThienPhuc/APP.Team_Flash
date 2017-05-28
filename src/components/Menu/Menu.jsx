@@ -3,16 +3,14 @@ import React from 'react';
 
 // Import Material-UI Components
 import FontIcon from 'material-ui/FontIcon';
+import FlatButton from 'material-ui/FlatButton';
 
 // Import Style
 import Style from './style.js';
 
-export default class Logo extends React.Component {
+export default class Menu extends React.Component {
     render() {
-        return (
-            <div style={Style.Menu}>
-                <FontIcon className="material-icons md-48">menu</FontIcon>
-            </div>
-        );
+        const Menu = <FontIcon className="material-icons">menu</FontIcon>;
+        return <FlatButton icon={Menu} style={Style.Menu}/>;
     }
 }

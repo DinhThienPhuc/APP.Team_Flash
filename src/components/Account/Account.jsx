@@ -3,16 +3,14 @@ import React from 'react';
 
 // Import Material-UI Components
 import FontIcon from 'material-ui/FontIcon';
+import FlatButton from 'material-ui/FlatButton';
 
 // Import Style
 import Style from './style.js';
 
-export default class Logo extends React.Component {
+export default class Account extends React.Component {
     render() {
-        return (
-            <div style={Style.Account}>
-                <FontIcon className="material-icons md-48">account_circle</FontIcon>
-            </div>
-        );
+        const Account = <FontIcon className="material-icons">person</FontIcon>;
+        return <FlatButton icon={Account} style={Style.Account}/>;
     }
 }

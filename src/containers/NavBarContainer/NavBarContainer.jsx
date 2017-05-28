@@ -1,41 +1,42 @@
 // Import modules
 import React from 'react';
-import {Container, Row, Col, Visible, Hidden} from 'react-grid-system';
 
-// Import Material-UI Components
-import FontIcon from 'material-ui/FontIcon';
+// Import Material-UI
+import AppBar from 'material-ui/AppBar';
+import Divider from 'material-ui/Divider';
 
-// Import components & containers
-import Search from '../../components/Search/Search.jsx';
+//Import components & containers
 import Logo from '../../components/Logo/Logo.jsx';
 import Account from '../../components/Account/Account.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
+import Search from '../../components/Search/Search.jsx';
 
-// Import Style
+import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
+import {red500, yellow500, blue500} from 'material-ui/styles/colors';
+
+//Import Style
 import Style from './style.js';
 
 export default class NavBarContainer extends React.Component {
     render() {
-        return (
-            <Container style={Style.NavBar}>
-                <Row>
-                    <Col xs={3} sm={3} md={1} lg={1}><Logo/></Col>
-                    <Col xs={3} sm={3} md={9} lg={9}>
-                        <Hidden xs sm>
-                            <Search/>
-                        </Hidden>
-                        <Visible xs sm>
-                            <FontIcon className="material-icons md-48">search</FontIcon>
-                        </Visible>
-                    </Col>
-                    <Col xs={3} sm={3} md={1} lg={1}>
-                        <Menu/>
-                    </Col>
-                    <Col xs={3} sm={3} md={1} lg={1}>
-                        <Account/>
-                    </Col>
-                </Row>
-            </Container>
+        const Nav = (
+            <div style={Style.Nav}>
+                <Search/>
+                <Menu/>
+                <Account/>
+            </div>
         );
+        const Logo = <ActionFlightTakeoff color={red500}/>;
+        const LogoIcon = (props) => (
+            <SvgIcon {...props}>
+                <path d="logo"/>
+            </SvgIcon>
+        );
+        return <AppBar
+            style={Style.NavBar}
+            showMenuIconButton={false}
+            zDepth={0}
+            iconElementLeft={<LogoIcon color={red500}/>}
+            iconElementRight={Nav}/>;
     }
 }
