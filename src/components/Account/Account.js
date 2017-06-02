@@ -1,7 +1,5 @@
 // Import modules
 import React from 'react';
-
-// Import Material-UI Components
 import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 

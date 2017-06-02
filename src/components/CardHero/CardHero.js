@@ -15,16 +15,16 @@ export default class CardHero extends React.Component {
     }
 
     render() {
-        console.log('Render hero Row...');
+        const hero = this.props.hero;
         return (
             <Card onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} style={this.style()} >
                 <CardMedia style={Style.cardMedia}>
-                    <img src={this.props.hero.image} style={Style.image} />
+                    <img src={hero.image} style={Style.image} />
                 </CardMedia>
                 <CardHeader
-                    title={this.props.hero.show}
-                    subtitle={this.props.hero.subtitle}
-                    avatar={this.props.hero.avatar}
+                    title={hero.show}
+                    subtitle={hero.subtitle}
+                    avatar={hero.avatar}
                 />
             </Card>
         )
@@ -39,7 +39,7 @@ export default class CardHero extends React.Component {
         this.setState({ hovered: false });
     }
 
-    style()  {
+    style() {
         if (this.state.hovered) {
             return Style.hoveredCard;
         } else {

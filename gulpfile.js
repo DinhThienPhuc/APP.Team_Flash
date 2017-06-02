@@ -18,7 +18,7 @@ gulp.task('default', () => {
 
 gulp.task('watch', () => {
     const b = browserify({
-        entries: ['src/app.jsx'],
+        entries: ['src/app.js'],
         cache: {},
         packageCache: {},
         plugin: ['watchify']

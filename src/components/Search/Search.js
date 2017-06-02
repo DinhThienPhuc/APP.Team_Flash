@@ -1,8 +1,6 @@
 // Import modules
 import React from 'react';
-import {Row, Col, Visible, Hidden} from 'react-grid-system';
-
-// Import Material-UI
+import { Row, Col, Visible, Hidden } from 'react-grid-system';
 import AutoComplete from 'material-ui/AutoComplete';
 import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
@@ -16,9 +14,7 @@ export default class Search extends React.Component {
         this.state = {
             dataSource: []
         };
-        this.handleUpdateInput = this
-            .handleUpdateInput
-            .bind(this);
+        this.handleUpdateInput = this.handleUpdateInput.bind(this);
     }
 
     render() {
@@ -31,19 +27,13 @@ export default class Search extends React.Component {
                         hintText="Search"
                         dataSource={this.state.dataSource}
                         onUpdateInput={this.handleUpdateInput}
-                        fullWidth={false}/>
+                        fullWidth={false} />
                 </Hidden>
                 <Visible xs sm>
-                    <FlatButton icon={searchIcon} style={Style.searchIcon}/>
+                    <FlatButton icon={searchIcon} style={Style.searchIcon} />
                 </Visible>
             </div>
         )
-    }
-
-    handleKeyUp(e) {
-        e.preventDefault();
-        var formSearch = document.forms.searchFlash;
-        var data = formSearch.search.value;
     }
 
     handleUpdateInput(value, e) {

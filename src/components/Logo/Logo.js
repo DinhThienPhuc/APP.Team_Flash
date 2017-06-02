@@ -1,7 +1,5 @@
 // Import modules
 import React from 'react';
-
-// Import Material-UI Components
 import SvgIcon from 'material-ui/SvgIcon';
 
 // Import Style

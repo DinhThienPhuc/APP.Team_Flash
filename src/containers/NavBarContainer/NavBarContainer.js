@@ -1,18 +1,14 @@
 // Import modules
 import React from 'react';
-
-// Import Material-UI
 import AppBar from 'material-ui/AppBar';
 import Divider from 'material-ui/Divider';
-
-//Import components & containers
-import Logo from '../../components/Logo/Logo.jsx';
-import Account from '../../components/Account/Account.jsx';
-import Menu from '../../components/Menu/Menu.jsx';
-import Search from '../../components/Search/Search.jsx';
-
 import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
 import {red500, yellow500, blue500} from 'material-ui/styles/colors';
+
+import Logo from '../../components/Logo/Logo.js';
+import Account from '../../components/Account/Account.js';
+import Menu from '../../components/Menu/Menu.js';
+import Search from '../../components/Search/Search.js';
 
 //Import Style
 import Style from './style.js';
