@@ -1,7 +1,4 @@
 module.exports = {
-    Dialog: {
-        borderRadius: '20px'
-    },
     Image: {
         maxWidth: '100%',
         height: 'auto',
@@ -9,5 +6,8 @@ module.exports = {
         marginLeft: 'auto',
         marginRight: 'auto',
         borderRadius: '8px'
+    },
+    BorderImage: {
+        margin: '-15px'
     }
 }

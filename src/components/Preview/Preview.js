@@ -1,7 +1,5 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 
 import Style from './style.js';
 
@@ -11,38 +9,33 @@ export default class Preview extends React.Component {
         this.state = {
             open: true,
             url: '',
-            show: ''
+            customWidth: ''
         };
         this.handleClose = this.handleClose.bind(this);
         this.loadImage = this.loadImage.bind(this);
     }
 
     render() {
-        const actions = [
-            <FlatButton
-                label="Cancel"
-                primary={true}
-                onTouchTap={this.handleClose}
-            />,
-        ];
-
         const {
             open,
             url,
-            show
+            customWidth
         } = this.state;
+
+        const customContentStyle = {
+            width: customWidth,
+            maxWidth: 'none'
+        }
 
         return (
             <Dialog
-                title={show}
-                actions={actions}
                 modal={false}
                 open={open}
                 onRequestClose={this.handleClose}
                 autoScrollBodyContent={true}
-                bodyStyle={Style.Dialog}
+                contentStyle={customContentStyle}
             >
-                <div>
+                <div className="borderImage" style={Style.BorderImage}>
                     <img src={url} alt={url} style={Style.Image} />
                 </div>
             </Dialog>
@@ -50,6 +43,15 @@ export default class Preview extends React.Component {
     }
 
     componentDidMount() {
+        let browserWidth = window.innerWidth;
+        let w;
+        if (browserWidth < 768) w = '90%';
+        if (768 <= browserWidth && browserWidth < 992) w = '40%';
+        if (992 <= browserWidth && browserWidth < 1200) w = '30%';
+        if (1200 <= browserWidth) w = '25%';
+        this.setState({
+            customWidth: w
+        });
         this.loadImage();
     }
 
@@ -60,8 +62,7 @@ export default class Preview extends React.Component {
         const res = await fetch(`/api/heroes/${id}`);
         const result = await res.json();
         this.setState({
-            url: result.data.image,
-            show: result.data.show
+            url: result.data.image
         });
     }
 
