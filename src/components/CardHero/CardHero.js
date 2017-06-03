@@ -1,5 +1,6 @@
 // Import modules
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
 // Import Style
@@ -16,10 +17,13 @@ export default class CardHero extends React.Component {
 
     render() {
         const hero = this.props.hero;
+        const link = `/${hero._id}`;
         return (
             <Card onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} style={this.style()} >
                 <CardMedia style={Style.cardMedia}>
-                    <img src={hero.image} style={Style.image} />
+                    <Link to={link}>
+                        <img src={hero.image} style={Style.image} />
+                    </Link>
                 </CardMedia>
                 <CardHeader
                     title={hero.show}
