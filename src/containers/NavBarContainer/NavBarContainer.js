@@ -1,11 +1,9 @@
 // Import modules
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import Divider from 'material-ui/Divider';
-import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
-import {red500, yellow500, blue500} from 'material-ui/styles/colors';
+import SvgIcon from 'material-ui/SvgIcon';
+import pure from 'recompose/pure';
 
-import Logo from '../../components/Logo/Logo.js';
 import Account from '../../components/Account/Account.js';
 import Menu from '../../components/Menu/Menu.js';
 import Search from '../../components/Search/Search.js';
@@ -17,22 +15,26 @@ export default class NavBarContainer extends React.Component {
     render() {
         const Nav = (
             <div style={Style.Nav}>
-                <Search/>
-                <Menu/>
-                <Account/>
+                <Search />
+                <Menu />
+                <Account />
             </div>
         );
-        const Logo = <ActionFlightTakeoff color={red500}/>;
-        const LogoIcon = (props) => (
+        let LogoIcon = (props) => (
             <SvgIcon {...props}>
-                <path d="logo"/>
+                <path d="M0 8000 l0 -8000 8000 0 8000 0 0 8000 0 8000 -8000 0 -8000 0 0-8000z" />
             </SvgIcon>
         );
+
+        LogoIcon = pure(LogoIcon);
+        LogoIcon.displayName = 'ActionAccessibility';
+        LogoIcon.muiName = 'SvgIcon';
+
         return <AppBar
             style={Style.NavBar}
-            showMenuIconButton={false}
-            zDepth={0}
-            iconElementLeft={<LogoIcon color={red500}/>}
-            iconElementRight={Nav}/>;
+            zDepth={1}
+            showMenuIconButton={true}
+            // iconElementLeft={<LogoIcon />}
+            iconElementRight={Nav} />;
     }
 }

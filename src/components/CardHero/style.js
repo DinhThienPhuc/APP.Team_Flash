@@ -3,7 +3,7 @@ module.exports = {
 
     cardMedia: { padding: '8px' },
 
-    hoveredCard: { boxShadow: 'none', borderRadius: '8px', backgroundColor: '#f2f2f2', cursor: 'pointer' },
+    hoveredCard: { backgroundColor: 'transparent', boxShadow: 'none', borderRadius: '8px', backgroundColor: '#f2f2f2', cursor: 'pointer' },
 
-    unhoveredCard: { boxShadow: 'none' }
+    unhoveredCard: { backgroundColor: 'transparent', boxShadow: 'none' }
 }

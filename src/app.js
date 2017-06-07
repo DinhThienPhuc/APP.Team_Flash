@@ -12,7 +12,7 @@ ReactDOM.render(
     (
         <MuiThemeProvider>
             <AppRoute />
-        </MuiThemeProvider >
+        </MuiThemeProvider>
     ),
     document.getElementById('root')
 );

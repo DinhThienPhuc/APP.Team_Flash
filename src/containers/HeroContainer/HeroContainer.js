@@ -9,6 +9,15 @@ import CardHero from '../../components/CardHero/CardHero.js';
 // Import Style
 import Style from './style.js';
 
+// Shuffle an array
+const shuffle = (array) => {
+    for (let i = array.length; i; i--) {
+        let j = Math.floor(Math.random() * i);
+        [array[i - 1], array[j]] = [array[j], array[i - 1]];
+    }
+    return array;
+}
+
 export default class HeroContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -16,7 +25,7 @@ export default class HeroContainer extends React.Component {
     }
 
     render() {
-        const heroes = this.state.heroes;
+        const heroes = shuffle(this.state.heroes);
         return (
             <StackGrid
                 columnWidth={245}

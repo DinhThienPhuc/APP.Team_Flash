@@ -1,62 +1,57 @@
 import React from 'react';
-import Dialog from 'material-ui/Dialog';
+import { Hidden, Row, Col } from 'react-grid-system';
+import { Link } from 'react-router-dom';
+import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 import Style from './style.js';
 
 export default class Preview extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            open: true,
-            url: '',
-            customWidth: ''
-        };
-        this.handleClose = this.handleClose.bind(this);
+        this.state = { url: '' };
         this.loadImage = this.loadImage.bind(this);
     }
 
     render() {
         const {
-            open,
-            url,
-            customWidth
+            url
         } = this.state;
 
-        const customContentStyle = {
-            width: customWidth,
-            maxWidth: 'none'
-        }
-
         return (
-            <Dialog
-                modal={false}
-                open={open}
-                onRequestClose={this.handleClose}
-                autoScrollBodyContent={true}
-                contentStyle={customContentStyle}
-            >
-                <div className="borderImage" style={Style.BorderImage}>
-                    <img src={url} alt={url} style={Style.Image} />
-                </div>
-            </Dialog>
+            <Row style={Style.Row}>
+                <Col xs={12} sm={10} md={8} lg={6} offset={{ sm: 1, md: 2, lg: 3 }}>
+                    <div style={Style.BorderImage}>
+                        <img
+                            src={url}
+                            style={Style.Image}
+                        />
+                    </div>
+                </Col>
+                <Col sm={1} md={2} lg={3}>
+                    <Hidden xs>
+                        <Link to='/'>
+                            <IconButton
+                                style={Style.IconButton}
+                            >
+                                <NavigationClose />
+                            </IconButton>
+                        </Link>
+                    </Hidden>
+                </Col>
+            </Row>
         );
     }
 
     componentDidMount() {
-        let browserWidth = window.innerWidth;
-        let w;
-        if (browserWidth < 768) w = '90%';
-        if (768 <= browserWidth && browserWidth < 992) w = '40%';
-        if (992 <= browserWidth && browserWidth < 1200) w = '30%';
-        if (1200 <= browserWidth) w = '25%';
-        this.setState({
-            customWidth: w
-        });
-        this.loadImage();
+        const loadImage = this.loadImage;
+        window.onhashchange = () => {
+            document.body.scrollTop = 0;
+            loadImage(window.location.hash);
+        }
     }
 
-    async loadImage() {
-        const url = window.location.href;
+    async loadImage(url) {
         const lastSlash = url.lastIndexOf('/');
         const id = url.slice(lastSlash + 1);
         const res = await fetch(`/api/heroes/${id}`);
@@ -65,9 +60,4 @@ export default class Preview extends React.Component {
             url: result.data.image
         });
     }
-
-    handleClose() {
-        this.setState({ open: false });
-        window.location.hash = '/';
-    };
 }

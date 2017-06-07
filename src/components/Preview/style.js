@@ -1,13 +1,34 @@
 module.exports = {
     Image: {
         maxWidth: '100%',
-        height: 'auto',
         display: 'block',
+        borderRadius: '8px',
         marginLeft: 'auto',
         marginRight: 'auto',
-        borderRadius: '8px'
+        position: 'relative'
     },
     BorderImage: {
-        margin: '-15px'
+        borderRadius: '8px',
+        padding: '20px',
+        marginTop: '90px',
+        backgroundColor: '#ffffff'
+    },
+    Col: {
+        cursor: 'pointer',
+        display: 'block',
+        backgroundColor: 'yellow'
+    },
+    Row: {
+        display: 'block',
+        backgroundColor: '#eeeeee',
+        paddingBottom: '30px'
+    },
+    IconButton: {
+        color: '#b5b5b5',
+        position: 'absolute',
+        left: '40px',
+        top: '90px',
+        borderRadius: '50%',
+        backgroundColor: '#ffffff'
     }
 }
