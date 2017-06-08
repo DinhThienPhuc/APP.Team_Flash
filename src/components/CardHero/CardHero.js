@@ -12,41 +12,38 @@ export default class CardHero extends React.Component {
         this.state = { hovered: false };
         this.onMouseOver = this.onMouseOver.bind(this);
         this.onMouseOut = this.onMouseOut.bind(this);
-        this.scrollTop = this.scrollTop.bind(this);
         this.style = this.style.bind(this);
     }
 
     render() {
-        const hero = this.props.hero;
+        const {
+            hero,
+            getRelatedPost
+        } = this.props;
         const link = `/${hero._id}`;
         return (
             <Card
+                style={this.style()}
                 onMouseOver={this.onMouseOver}
                 onMouseOut={this.onMouseOut}
-                style={this.style()}
                 ref="Card"
             >
                 <CardMedia style={Style.cardMedia}>
-                    <Link
-                        to={link}
-                        onClick={this.scrollTop}
-                    >
+                    <Link to={link}>
                         <img src={hero.image} style={Style.image} />
                     </Link>
                 </CardMedia>
-                <CardHeader
-                    title={hero.show}
-                    subtitle={hero.subtitle}
-                    avatar={hero.avatar}
-                />
+                <Link to={`?q=${hero.show}`}>
+                    <CardHeader
+                        title={hero.show}
+                        subtitle={`${hero.subtitle.slice(0, 25)}`}
+                        subtitleStyle={Style.subtitleStyle}
+                        avatar={hero.avatar}
+                        style={this.style()}
+                    />
+                </Link>
             </Card>
         )
-    }
-
-    scrollTop() {
-        this.refs.Card.props.style['outline'] = 'none !important';
-        document.body.scrollTop = 0; // For Chrome, Safari and Opera 
-        document.documentElement.scrollTop = 0; // For IE and Firefox
     }
 
     // Style Card

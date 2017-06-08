@@ -45,5 +45,16 @@ export default class HeroContainer extends React.Component {
         const res = await fetch('/api/heroes');
         const result = await res.json();
         this.setState({ heroes: result.data });
+        window.onhashchange = () => {
+            if (this.props.location.search) {
+                const query = this.props.location.search;
+                const filter = query.toString().slice(3);
+                const relatedPost = result.data.filter(hero => filter === hero.show);
+                this.setState({ heroes: relatedPost });
+            } else {
+                this.setState({ heroes: result.data });
+            }
+            document.body.scrollTop = 0;
+        };
     }
 }

@@ -18,6 +18,7 @@ export default class AppRoute extends React.Component {
                         <Route path="/" component={NavBarContainer} />
                         <Route path="/:id" component={Preview} />
                         <Route path="/" component={HeroContainer} />
+                        <Route path="/?q=:params" component={HeroContainer} />
                     </_Main>
                 </Switch>
             </Router>

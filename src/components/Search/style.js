@@ -11,5 +11,8 @@ module.exports = {
     },
     Row: {
         display: 'inline-block'
+    },
+    inputStyle: {
+        marginLeft: '10px'
     }
 }

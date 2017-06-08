@@ -1,21 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
-const Promise = require('bluebird');
-const assert = require('assert');
-
-//Connection URL
-const url = 'mongodb://localhost:27017/superhero';
-const collectionName = 'super';
-
-const avatarShow = {
-    theFlash: 'https://maxcdn.icons8.com/Share/icon/Cinema//the_flash_sign1600.png',
-    greenArrow: 'https://s-media-cache-ak0.pinimg.com/originals/cc/ec/12/ccec12f2ab02551b6207da5c3e0171b6.png',
-    batman: 'http://www.clipartbest.com/cliparts/niB/BpX/niBBpX8xT.svg',
-    spiderman: 'https://d30y9cdsu7xlg0.cloudfront.net/png/52601-200.png',
-    deadpool: 'http://icanbecreative.com/resources/files/articles/deadpool-movie-photoshop-tutorial/deadpool-movie-logo-photoshop-tutorial.jpg',
-    ironman: 'http://goldwallpapers.com/uploads/posts/iron-man-logo-wallpaper/iron_man_logo_wallpaper_010.jpg',
-}
-
-const data = [
+module.exports = [
     {
         "avatar": avatarShow.theFlash,
         "show": "The Flash",
@@ -216,55 +199,11 @@ const data = [
     }
 ]
 
-MongoClient.connect(url, function (err, db) {
-
-    console.log('Connect successfully to server!!!');
-    // Get the document collection
-    const collection = db.collection(collectionName);
-
-    // Initial data to collection
-    // (async () => {
-    //     let result = await insertDoc(data, collection);
-    //     console.log('result: ', result);
-    //     db.close();
-    // })();
-
-    data.map(async flash => {
-        let doc = await findDoc(flash, collection);
-        if (!doc[0]) {
-            let result = await insertDoc([flash], collection);
-            console.log('response: ', result);
-        }
-    });
-
-    // Remove some data
-    // (async () => {
-    //     let filter = {};
-    //     let result = await removeDoc(filter, collection);
-    //     console.log('result ne', result);
-    //     db.close();
-    // })();
-
-    // Check data in collection
-    // (async () => {
-    //     let result = await findDoc({}, collection);
-    //     console.log('RESULT: ', result);
-    //     db.close();
-    // })();
-});
-
-const insertDoc = async (data, collection) => {
-    return await collection.insertMany(data, collection);
-}
-
-const findDoc = async (filter, collection) => {
-    return await collection.find(filter).toArray();
-}
-
-const updateDoc = async (filter, set, collection) => {
-    return await collection.updateOne(filter, set);
-}
-
-const removeDoc = async (filter, collection) => {
-    return await collection.deleteMany(filter);
+const avatarShow = {
+    theFlash: 'https://maxcdn.icons8.com/Share/icon/Cinema//the_flash_sign1600.png',
+    greenArrow: 'https://s-media-cache-ak0.pinimg.com/originals/cc/ec/12/ccec12f2ab02551b6207da5c3e0171b6.png',
+    batman: 'http://www.clipartbest.com/cliparts/niB/BpX/niBBpX8xT.svg',
+    spiderman: 'https://d30y9cdsu7xlg0.cloudfront.net/png/52601-200.png',
+    deadpool: 'http://icanbecreative.com/resources/files/articles/deadpool-movie-photoshop-tutorial/deadpool-movie-logo-photoshop-tutorial.jpg',
+    ironman: 'http://goldwallpapers.com/uploads/posts/iron-man-logo-wallpaper/iron_man_logo_wallpaper_010.jpg',
 }

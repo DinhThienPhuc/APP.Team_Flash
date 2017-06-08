@@ -9,5 +9,9 @@ module.exports = {
     },
     Nav: {
         marginRight: '10px'
+    },
+    IconButton: {
+        color: 'black',
+        backgroundColor: '#ffffff'
     }
 }

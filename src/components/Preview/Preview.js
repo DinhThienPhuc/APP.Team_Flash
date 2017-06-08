@@ -45,8 +45,13 @@ export default class Preview extends React.Component {
 
     componentDidMount() {
         const loadImage = this.loadImage;
+
         window.onhashchange = () => {
             document.body.scrollTop = 0;
+            loadImage(window.location.hash);
+        }
+
+        if (performance.navigation.type == 1) {
             loadImage(window.location.hash);
         }
     }

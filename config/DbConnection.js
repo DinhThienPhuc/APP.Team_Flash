@@ -1,4 +1,4 @@
 module.exports = {
-    DbConnectionUrl: 'mongodb://localhost:27017/theflash',
-    collectionName: 'speedsters'
+    DbConnectionUrl: 'mongodb://localhost:27017/superhero',
+    collectionName: 'super'
 }

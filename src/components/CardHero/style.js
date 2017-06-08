@@ -5,5 +5,7 @@ module.exports = {
 
     hoveredCard: { backgroundColor: 'transparent', boxShadow: 'none', borderRadius: '8px', backgroundColor: '#f2f2f2', cursor: 'pointer' },
 
-    unhoveredCard: { backgroundColor: 'transparent', boxShadow: 'none' }
+    unhoveredCard: { backgroundColor: 'transparent', boxShadow: 'none' },
+
+    subtitleStyle: { maxWidth: '135px', marginRight: '5px' }
 }
