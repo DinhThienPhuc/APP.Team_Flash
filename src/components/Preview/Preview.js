@@ -10,7 +10,7 @@ export default class Preview extends React.Component {
     constructor(props) {
         super(props);
         this.state = { url: '' };
-        this.loadImage = this.loadImage.bind(this);
+        this.setImageUrl = this.setImageUrl.bind(this);
     }
 
     render() {
@@ -44,21 +44,20 @@ export default class Preview extends React.Component {
     }
 
     componentDidMount() {
-        const loadImage = this.loadImage;
-
-        window.onhashchange = () => {
-            document.body.scrollTop = 0;
-            loadImage(window.location.hash);
-        }
-
-        if (performance.navigation.type == 1) {
-            loadImage(window.location.hash);
-        }
+        const imageId = this.props.location.pathname.slice(1);
+        this.setImageUrl(imageId);
     }
 
-    async loadImage(url) {
-        const lastSlash = url.lastIndexOf('/');
-        const id = url.slice(lastSlash + 1);
+    componentWillReceiveProps(nextProps) {
+        const imageId = nextProps.match.params.id;
+        this.setImageUrl(imageId);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return !(this.state.url === nextState.url);
+    }
+
+    async setImageUrl(id) {
         const res = await fetch(`/api/heroes/${id}`);
         const result = await res.json();
         this.setState({

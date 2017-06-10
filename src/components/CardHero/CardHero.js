@@ -20,7 +20,6 @@ export default class CardHero extends React.Component {
             hero,
             getRelatedPost
         } = this.props;
-        const link = `/${hero._id}`;
         return (
             <Card
                 style={this.style()}
@@ -29,7 +28,9 @@ export default class CardHero extends React.Component {
                 ref="Card"
             >
                 <CardMedia style={Style.cardMedia}>
-                    <Link to={link}>
+                    <Link to={{
+                        pathname: `/${hero._id}`
+                    }}>
                         <img src={hero.image} style={Style.image} />
                     </Link>
                 </CardMedia>
