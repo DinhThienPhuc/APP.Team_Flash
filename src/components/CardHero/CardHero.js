@@ -34,7 +34,9 @@ export default class CardHero extends React.Component {
                         <img src={hero.image} style={Style.image} />
                     </Link>
                 </CardMedia>
-                <Link to={`?q=${hero.show}`}>
+                <Link to={{
+                    search: `?sort=${hero.show}`
+                }}>
                     <CardHeader
                         title={hero.show}
                         subtitle={`${hero.subtitle.slice(0, 25)}`}

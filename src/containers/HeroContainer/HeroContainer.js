@@ -1,7 +1,7 @@
 // Import modules
 import React from 'react';
 import StackGrid from 'react-stack-grid';
-import $ from 'jquery';
+import _ from 'lodash';
 
 // Import Components & Containers
 import CardHero from '../../components/CardHero/CardHero.js';
@@ -37,24 +37,52 @@ export default class HeroContainer extends React.Component {
         )
     }
 
-    componentDidMount() {
-        this.loadData();
+    componentDidUpdate() {
+        document.body.scrollTop = 0;
     }
 
-    async loadData() {
+    componentDidMount() {
+        const {
+            pathname,
+            search
+        } = this.props.location;
+        console.log('window: ', pathname, search);
+        this.handleUri(pathname, search);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const {
+            pathname,
+            search
+        } = nextProps.history.location;
+        this.handleUri(pathname, search);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return !_.isEqual(this.state.heroes, nextState.heroes);
+    }
+
+    handleUri(pathname, search) {
+        if (!search) {
+            this.loadData();
+        } else {
+            const query = search.slice(search.indexOf('=') + 1);
+            this.loadData(query);
+        }
+    }
+
+    fetchData(data, query) {
+        if (undefined === query) {
+            this.setState({ heroes: data });
+        } else {
+            const newData = data.filter(hero => query === hero.show);
+            this.setState({ heroes: newData });
+        }
+    }
+
+    async loadData(query = undefined) {
         const res = await fetch('/api/heroes');
         const result = await res.json();
-        this.setState({ heroes: result.data });
-        window.onhashchange = () => {
-            if (this.props.location.search) {
-                const query = this.props.location.search;
-                const filter = query.toString().slice(3);
-                const relatedPost = result.data.filter(hero => filter === hero.show);
-                this.setState({ heroes: relatedPost });
-            } else {
-                this.setState({ heroes: result.data });
-            }
-            document.body.scrollTop = 0;
-        };
+        this.fetchData(result.data, query);
     }
 }
