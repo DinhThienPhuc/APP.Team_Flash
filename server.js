@@ -14,13 +14,13 @@ const heroController = require('./api/controllers/heroController.js')
 
 // Setup server middlewares
 app.use(express.static('static'))
-app.use(bodyParser.json())  // Parse json body
-app.use(bodyParser.urlencoded({ extended: true }))  // Parse urlencoded body
+app.use(bodyParser.json()) // Parse json body
+app.use(bodyParser.urlencoded({extended: true})) // Parse urlencoded body
 
 MongoClient.connect(urlDatabase, (err, db) => {
-	assert.equal(null, err)
+    assert.equal(null, err)
 
     //Start APIs and connect to server
-	heroController(app, db.collection(collectionName))
-	app.listen(4869)
-}) 
+    heroController(app, db.collection(collectionName))
+    app.listen(4869)
+})

@@ -1,11 +1,11 @@
 module.exports = {
-    image: { borderRadius: '8px', maxWidth: '100%', height: 'auto' },
+    image: { borderRadius: "8px", maxWidth: "100%", height: "auto" },
 
-    cardMedia: { padding: '8px' },
+    cardMedia: { padding: "8px" },
 
-    hoveredCard: { backgroundColor: 'transparent', boxShadow: 'none', borderRadius: '8px', backgroundColor: '#f2f2f2', cursor: 'pointer' },
+    hoveredCard: { boxShadow: "none", borderRadius: "8px", backgroundColor: "#f2f2f2", cursor: "pointer" },
 
-    unhoveredCard: { backgroundColor: 'transparent', boxShadow: 'none' },
+    unhoveredCard: { boxShadow: "none" },
 
-    subtitleStyle: { maxWidth: '135px', marginRight: '5px' }
+    subtitleStyle: { maxWidth: "135px", marginRight: "5px" }
 }

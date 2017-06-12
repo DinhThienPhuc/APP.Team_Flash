@@ -1,31 +1,29 @@
 // Import modules
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import React from "react"
+import { Link } from "react-router-dom"
+import { Card, CardHeader, CardMedia } from "material-ui/Card"
 
 // Import Style
-import Style from './style.js';
+import Style from "./style.js"
 
 export default class CardHero extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = { hovered: false };
-        this.onMouseOver = this.onMouseOver.bind(this);
-        this.onMouseOut = this.onMouseOut.bind(this);
-        this.style = this.style.bind(this);
+        super(props)
+        this.state = { hovered: false }
+        this.onMouseOver = this.onMouseOver.bind(this)
+        this.onMouseOut = this.onMouseOut.bind(this)
+        this.style = this.style.bind(this)
     }
 
     render() {
         const {
-            hero,
-            getRelatedPost
-        } = this.props;
+            hero
+        } = this.props
         return (
             <Card
                 style={this.style()}
                 onMouseOver={this.onMouseOver}
                 onMouseOut={this.onMouseOut}
-                ref="Card"
             >
                 <CardMedia style={Style.cardMedia}>
                     <Link to={{
@@ -51,18 +49,18 @@ export default class CardHero extends React.Component {
 
     // Style Card
     onMouseOver() {
-        this.setState({ hovered: true });
+        this.setState({ hovered: true })
     }
 
     onMouseOut() {
-        this.setState({ hovered: false });
+        this.setState({ hovered: false })
     }
 
     style() {
         if (this.state.hovered) {
-            return Style.hoveredCard;
+            return Style.hoveredCard
         } else {
-            return Style.unhoveredCard;
+            return Style.unhoveredCard
         }
     }
 }

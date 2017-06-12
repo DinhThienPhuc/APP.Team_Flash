@@ -1,9 +1,6 @@
 // Import modules
-import React from 'react';
-import SvgIcon from 'material-ui/SvgIcon';
-
-// Import Style
-import Style from './style.js';
+import React from "react"
+import SvgIcon from "material-ui/SvgIcon"
 
 export default class Logo extends React.Component {
     render() {
@@ -11,7 +8,7 @@ export default class Logo extends React.Component {
             <SvgIcon {...props}>
                 <path d="logo"/>
             </SvgIcon>
-        );
-        return <LogoIcon/>;
+        )
+        return <LogoIcon/>
     }
 }

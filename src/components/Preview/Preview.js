@@ -1,22 +1,22 @@
-import React from 'react';
-import { Hidden, Row, Col } from 'react-grid-system';
-import { Link } from 'react-router-dom';
-import IconButton from 'material-ui/IconButton';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import React from "react"
+import { Hidden, Row, Col } from "react-grid-system"
+import { Link } from "react-router-dom"
+import IconButton from "material-ui/IconButton"
+import NavigationClose from "material-ui/svg-icons/navigation/close"
 
-import Style from './style.js';
+import Style from "./style.js"
 
 export default class Preview extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = { url: '' };
-        this.setImageUrl = this.setImageUrl.bind(this);
+        super(props)
+        this.state = { url: "" }
+        this.setImageUrl = this.setImageUrl.bind(this)
     }
 
     render() {
         const {
             url
-        } = this.state;
+        } = this.state
 
         return (
             <Row style={Style.Row}>
@@ -30,7 +30,7 @@ export default class Preview extends React.Component {
                 </Col>
                 <Col sm={1} md={2} lg={3}>
                     <Hidden xs>
-                        <Link to='/'>
+                        <Link to="/">
                             <IconButton
                                 style={Style.IconButton}
                             >
@@ -40,28 +40,28 @@ export default class Preview extends React.Component {
                     </Hidden>
                 </Col>
             </Row>
-        );
+        )
     }
 
     componentDidMount() {
-        const imageId = this.props.location.pathname.slice(1);
-        this.setImageUrl(imageId);
+        const imageId = this.props.location.pathname.slice(1)
+        this.setImageUrl(imageId)
     }
 
     componentWillReceiveProps(nextProps) {
-        const imageId = nextProps.match.params.id;
-        this.setImageUrl(imageId);
+        const imageId = nextProps.match.params.id
+        this.setImageUrl(imageId)
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return !(this.state.url === nextState.url);
+        return !(this.state.url === nextState.url)
     }
 
     async setImageUrl(id) {
-        const res = await fetch(`/api/heroes/${id}`);
-        const result = await res.json();
+        const res = await fetch(`/api/heroes/${id}`)
+        const result = await res.json()
         this.setState({
             url: result.data.image
-        });
+        })
     }
 }
