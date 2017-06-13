@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "lint:watch": "npm run lint -- --watch"
+    "start": "nodemon server.js"
   },
   "browserify": {
     "transform": [

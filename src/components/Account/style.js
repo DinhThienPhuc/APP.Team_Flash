@@ -6,4 +6,4 @@ module.exports = {
         marginTop: '5px',
         marginRight: '20px'
     }
-}
+};

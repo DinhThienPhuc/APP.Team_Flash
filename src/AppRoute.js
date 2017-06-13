@@ -1,6 +1,6 @@
 // Import modules
 import React from 'react';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import HeroContainer from './containers/HeroContainer/HeroContainer.js';
 import NavBarContainer from './containers/NavBarContainer/NavBarContainer.js';
@@ -11,6 +11,13 @@ import Preview from './components/Preview/Preview.js';
 
 const browserHistory = Router.browserHistory;
 
+/**
+ * @description 
+ * 
+ * @export
+ * @class AppRoute
+ * @extends {React.Component}
+ */
 export default class AppRoute extends React.Component {
     render() {
         return (

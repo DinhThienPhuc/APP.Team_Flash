@@ -1,12 +1,12 @@
 // Import modules
-import React from "react"
+import React from 'react';
 
 export default class _Preview extends React.Component {
-    render () {
+    render() {
         return (
             <div className='preview'>
                 {this.props.children}
             </div>
-        )
+        );
     }
 }

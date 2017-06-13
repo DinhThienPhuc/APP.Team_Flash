@@ -1,6 +1,6 @@
 module.exports = {
     Hero: {
-        position: "absolute",
-        top: "80px"
+        position: 'absolute',
+        top: '80px'
     }
-}
+};
