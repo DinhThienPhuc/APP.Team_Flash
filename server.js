@@ -6,7 +6,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Import database info
-const urlDatabase = require('./config/DbConnection.js').DbConnectionUrl;
+const urlDatabase = process.env.MONGOLAB_URI || require('./config/DbConnection.js').DbConnectionUrl;
 const collectionName = require('./config/DbConnection.js').collectionName;
 
 // Import APIs
