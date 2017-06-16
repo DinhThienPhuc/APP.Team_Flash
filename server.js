@@ -7,7 +7,8 @@ const assert = require('assert');
 
 // Import database info
 const urlDatabase = process.env.MONGODB_URI;
-const collectionName = require('./config/DbConnection.js').collectionName;
+const collectionName = process.env.COLLECTION;
+const port = process.env.PORT;
 
 // Import APIs
 const heroController = require('./api/controllers/heroController.js');
@@ -22,5 +23,7 @@ MongoClient.connect(urlDatabase, (err, db) => {
 
     //Start APIs and connect to server
     heroController(app, db.collection(collectionName));
-    app.listen(4869);
+    app.listen(port, () => {
+        console.log('Express server is running...');
+    });
 });
