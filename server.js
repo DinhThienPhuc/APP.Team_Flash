@@ -5,10 +5,12 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
-// Import database info
-const urlDatabase = process.env.MONGODB_URI;
-const collectionName = process.env.COLLECTION;
-const port = process.env.PORT;
+// Get Database Info
+const {
+    MONGODB_URI,
+    COLLECTION,
+    PORT
+} = process.env;
 
 // Import APIs
 const heroController = require('./api/controllers/heroController.js');
@@ -18,12 +20,12 @@ app.use(express.static('static'));
 app.use(bodyParser.json()); // Parse json body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse urlencoded body
 
-MongoClient.connect(urlDatabase, (err, db) => {
+MongoClient.connect(MONGODB_URI, (err, db) => {
     assert.equal(null, err);
 
     //Start APIs and connect to server
-    heroController(app, db.collection(collectionName));
-    app.listen(port, () => {
+    heroController(app, db.collection(COLLECTION));
+    app.listen(PORT, () => {
         console.log('Express server is running...');
     });
 });
