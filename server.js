@@ -13,8 +13,6 @@ const {
     port
 } = DatabaseInfo;
 
-console.log('adad: ', DatabaseInfo);
-
 // Import APIs
 const heroController = require('./api/controllers/heroController.js');
 
