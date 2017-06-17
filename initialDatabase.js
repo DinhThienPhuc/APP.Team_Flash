@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 //Connection URL
-const url = 'mongodb://kuroba12138:kuroba12138@ds127962.mlab.com:27962/heroku_cjj51h6k';
+const url = 'mongodb://kuroba12138:kuroba12138@ds129422.mlab.com:29422/heroku_tb5hrt9h';
 const collectionName = 'speedsters';
 
 const avatarShow = {
