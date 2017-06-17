@@ -6,12 +6,11 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Import database info
-const DatabaseInfo = require('./config/DatabaseInfo.js');
 const {
     DbConnectionUrl,
     collectionName,
     port
-} = DatabaseInfo;
+} = require('./config/DatabaseInfo.js');
 
 // Import APIs
 const heroController = require('./api/controllers/heroController.js');
@@ -22,7 +21,8 @@ app.use(bodyParser.json()); // Parse json body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse urlencoded body
 
 MongoClient.connect(DbConnectionUrl, (err, db) => {
-    assert.equal(null, err);
+    // assert.equal(null, err);
+    console.error(err.message);
 
     //Start APIs and connect to server
     heroController(app, db.collection(collectionName));
