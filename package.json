@@ -8,6 +8,10 @@
     "start": "node server.js",
     "build": "gulp"
   },
+  "engines": {
+    "node": "7.10.0",
+    "npm": "4.2.0"
+  },
   "browserify": {
     "transform": [
       [
