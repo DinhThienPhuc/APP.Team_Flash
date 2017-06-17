@@ -8,8 +8,7 @@ const assert = require('assert');
 // Import database info
 const {
     DbConnectionUrl,
-    collectionName,
-    port
+    collectionName
 } = require('./config/DatabaseInfo.js');
 
 // Import APIs
@@ -20,12 +19,14 @@ app.use(express.static('static'));
 app.use(bodyParser.json()); // Parse json body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse urlencoded body
 
+const port = process.env.PORT || 4869;
+
 MongoClient.connect(DbConnectionUrl, (err, db) => {
     assert.equal(null, err);
 
     //Start APIs and connect to server
     heroController(app, db.collection(collectionName));
-    app.listen(process.env.PORT || port, () => {
+    app.listen(port, () => {
         console.log(`Express server is running on port ${port}`);
     });
 });
