@@ -25,7 +25,7 @@ MongoClient.connect(DbConnectionUrl, (err, db) => {
 
     //Start APIs and connect to server
     heroController(app, db.collection(collectionName));
-    app.listen(port, () => {
+    app.listen(process.env.PORT || port, () => {
         console.log(`Express server is running on port ${port}`);
     });
 });
