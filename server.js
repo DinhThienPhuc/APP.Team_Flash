@@ -21,8 +21,7 @@ app.use(bodyParser.json()); // Parse json body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse urlencoded body
 
 MongoClient.connect(DbConnectionUrl, (err, db) => {
-    // assert.equal(null, err);
-    console.error(err.message);
+    assert.equal(null, err);
 
     //Start APIs and connect to server
     heroController(app, db.collection(collectionName));
