@@ -1,9 +1,11 @@
+// Import modules
 const MongoClient = require('mongodb').MongoClient;
 
-//Connection URL
+// Connect Uri and collection info
 const url = 'mongodb://kuroba12138:kuroba12138@ds129422.mlab.com:29422/heroku_tb5hrt9h';
 const collectionName = 'speedsters';
 
+// Hard-coded data
 const avatarShow = {
     theFlash: 'https://maxcdn.icons8.com/Share/icon/Cinema//the_flash_sign1600.png',
     greenArrow: 'https://s-media-cache-ak0.pinimg.com/originals/cc/ec/12/ccec12f2ab02551b6207da5c' +
@@ -228,6 +230,7 @@ const data = [
     }
 ];
 
+// Manipulate data
 MongoClient.connect(url, (err, db) => {
     // Get the document collection
     const collection = db.collection(collectionName);
@@ -261,6 +264,7 @@ MongoClient.connect(url, (err, db) => {
     })();
 });
 
+// Methods to query database
 const insertDoc = async (data, collection) => {
     return await collection.insertMany(data, collection);
 };

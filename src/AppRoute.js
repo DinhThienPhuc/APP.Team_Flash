@@ -2,11 +2,11 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
+//Import components
 import HeroContainer from './containers/HeroContainer/HeroContainer.js';
 import NavBarContainer from './containers/NavBarContainer/NavBarContainer.js';
 import _Main from './layouts/_Main.js';
 import _Preview from './layouts/_Preview.js';
-
 import Preview from './components/Preview/Preview.js';
 
 const browserHistory = Router.browserHistory;

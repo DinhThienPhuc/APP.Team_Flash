@@ -1,6 +1,13 @@
 // Import modules
 import React from 'react';
 
+/**
+ * @description 
+ * 
+ * @export
+ * @class _Preview
+ * @extends {React.Component}
+ */
 export default class _Preview extends React.Component {
     render() {
         return (

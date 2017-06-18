@@ -1,3 +1,4 @@
+// Import modules
 const UserInfo = require('./User.js');
 
 module.exports = {

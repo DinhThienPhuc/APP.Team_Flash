@@ -1,3 +1,4 @@
+// Import modules
 import React from 'react';
 import {
     Hidden,
@@ -10,8 +11,16 @@ import {
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
+// Import style
 import Style from './style.js';
 
+/**
+ * @description 
+ * 
+ * @export
+ * @class Preview
+ * @extends {React.Component}
+ */
 export default class Preview extends React.Component {
     constructor(props) {
         super(props);

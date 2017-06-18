@@ -1,7 +1,8 @@
+// Import modules
 const ObjectId = require('mongodb').ObjectId;
 const heroModel = require('../models/heroModel.js');
 
-const getData = async(res, collection) => {
+const getAllData = async(res, collection) => {
     let heroes = await heroModel.findDoc({}, collection);
     res.status(200).send({
         data: heroes
@@ -10,7 +11,7 @@ const getData = async(res, collection) => {
 
 module.exports = (app, collection) => {
     app.get('/api/heroes', async(req, res) => {
-        getData(res, collection);
+        getAllData(res, collection);
     });
 
     app.get('/api/heroes/:id', async(req, res) => {

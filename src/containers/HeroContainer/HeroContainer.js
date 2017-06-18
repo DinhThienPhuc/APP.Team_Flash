@@ -3,10 +3,10 @@ import React from 'react';
 import StackGrid from 'react-stack-grid';
 import _ from 'lodash';
 
-// Import Components & Containers
+// Import components
 import CardHero from '../../components/CardHero/CardHero.js';
 
-// Import Style
+// Import style
 import Style from './style.js';
 
 // Shuffle an array
@@ -20,6 +20,13 @@ const shuffle = array => {
     return array;
 };
 
+/**
+ * @description 
+ * 
+ * @export
+ * @class HeroContainer
+ * @extends {React.Component}
+ */
 export default class HeroContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -32,14 +39,14 @@ export default class HeroContainer extends React.Component {
         const heroes = shuffle(this.state.heroes);
         return (
             <StackGrid
-                columnWidth = {245}
-                gutterWidth = {10}
-                gutterHeight = {30}
-                style = {Style.Hero}
+                columnWidth={245}
+                gutterWidth={10}
+                gutterHeight={30}
+                style={Style.Hero}
             >
                 {heroes.map(hero =>
-                    <CardHero key ={hero._id} hero = {hero}/>
-                )} 
+                    <CardHero key={hero._id} hero={hero} />
+                )}
             </StackGrid>
         );
     }

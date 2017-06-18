@@ -19,8 +19,10 @@ app.use(express.static('static'));
 app.use(bodyParser.json()); // Parse json body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse urlencoded body
 
+// Config port
 const port = process.env.PORT || 4869;
 
+// Connect to database and start server
 MongoClient.connect(DbConnectionUrl, (err, db) => {
     assert.equal(null, err);
 

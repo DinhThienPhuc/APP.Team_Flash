@@ -9,9 +9,16 @@ import {
     CardMedia
 } from 'material-ui/Card';
 
-// Import Style
+// Import style
 import Style from './style.js';
 
+/**
+ * @description 
+ * 
+ * @export
+ * @class CardHero
+ * @extends {React.Component}
+ */
 export default class CardHero extends React.Component {
     constructor(props) {
         super(props);

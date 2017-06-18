@@ -8,8 +8,16 @@ import TextField from 'material-ui/TextField';
 import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 
-// Import Style
+// Import style
 import Style from './style.js';
+
+/**
+ * @description 
+ * 
+ * @export
+ * @class Search
+ * @extends {React.Component}
+ */
 export default class Search extends React.Component {
     constructor(props) {
         super(props);

@@ -3,7 +3,7 @@ import React from 'react';
 import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 
-// Import Style
+// Import style
 import Style from './style.js';
 
 /**
