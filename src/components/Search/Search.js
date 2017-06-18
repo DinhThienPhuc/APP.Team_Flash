@@ -1,5 +1,5 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 import {
     Visible,
     Hidden
@@ -16,12 +16,9 @@ import Style from './style.js';
  * 
  * @export
  * @class Search
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class Search extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+export default class Search extends Component {
     render() {
         const searchIcon = <FontIcon className='material-icons'>search</FontIcon>;
         const handleSearch = this.props.handleSearch;

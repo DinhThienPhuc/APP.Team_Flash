@@ -1,14 +1,14 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 
 /**
  * @description 
  * 
  * @export
  * @class _Preview
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class _Preview extends React.Component {
+export default class _Preview extends Component {
     render() {
         return (
             <div className='preview'>

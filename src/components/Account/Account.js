@@ -1,5 +1,5 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -7,13 +7,13 @@ import FlatButton from 'material-ui/FlatButton';
 import Style from './style.js';
 
 /**
- * @description
- *
+ * @description 
+ * 
  * @export
  * @class Account
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class Account extends React.Component {
+export default class Account extends Component {
     render() {
         const Account = <FontIcon className="material-icons">person</FontIcon>;
         return <FlatButton icon={Account} style={Style.Account} />;

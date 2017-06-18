@@ -1,5 +1,5 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 
 // Import components
@@ -17,7 +17,7 @@ import Style from './style.js';
  * @class NavBarContainer
  * @extends {React.Component}
  */
-export default class NavBarContainer extends React.Component {
+export default class NavBarContainer extends Component {
     render() {
         const Nav = (
             <div style={Style.Nav}>

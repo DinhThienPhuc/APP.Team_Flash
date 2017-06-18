@@ -1,7 +1,7 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 import StackGrid from 'react-stack-grid';
-import _ from 'lodash';
+import isEqual from 'lodash/isEqual';
 
 // Import components
 import CardHero from '../../components/CardHero/CardHero.js';
@@ -25,9 +25,9 @@ const shuffle = array => {
  * 
  * @export
  * @class HeroContainer
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class HeroContainer extends React.Component {
+export default class HeroContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -72,7 +72,7 @@ export default class HeroContainer extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return !_.isEqual(this.state.heroes, nextState.heroes);
+        return !isEqual(this.state.heroes, nextState.heroes);
     }
 
     handleUri(pathname, search) {

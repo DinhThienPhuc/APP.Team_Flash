@@ -1,14 +1,14 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 
 /**
  * @description 
  * 
  * @export
  * @class _Main
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class _Main extends React.Component {
+export default class _Main extends Component {
     render() {
         return (
             <div className="main">

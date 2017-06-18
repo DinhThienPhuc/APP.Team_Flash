@@ -1,5 +1,5 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 import FontIcon from 'material-ui/FontIcon';
 import {
     Link
@@ -13,9 +13,9 @@ import Style from './style.js';
  * 
  * @export
  * @class Logo
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class Logo extends React.Component {
+export default class Logo extends Component {
     render() {
         return (
             <Link to='/'>

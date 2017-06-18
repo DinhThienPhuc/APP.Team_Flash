@@ -1,5 +1,5 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 import {
     Hidden,
     Row,
@@ -19,9 +19,9 @@ import Style from './style.js';
  * 
  * @export
  * @class Preview
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class Preview extends React.Component {
+export default class Preview extends Component {
     constructor(props) {
         super(props);
         this.state = {

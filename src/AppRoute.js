@@ -1,5 +1,5 @@
 // Import modules
-import React from 'react';
+import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 //Import components
@@ -16,9 +16,9 @@ const browserHistory = Router.browserHistory;
  * 
  * @export
  * @class AppRoute
- * @extends {React.Component}
+ * @extends {Component}
  */
-export default class AppRoute extends React.Component {
+export default class AppRoute extends Component {
     render() {
         return (
             <Router history={browserHistory}>
