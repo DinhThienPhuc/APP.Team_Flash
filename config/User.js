@@ -1,4 +1,4 @@
 module.exports = {
-    user: "test",
-    pass: "123"
+    user: "kuroba1213",
+    pass: "12313232"
 };
