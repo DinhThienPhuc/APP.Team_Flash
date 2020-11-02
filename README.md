@@ -1,6 +1,9 @@
-# APP.Superest
-## An App duplicates Pinterest.
+## Superest - Superhero app like Pinterest
 
-It's an application I did when I'm not busy. I've learnt MERN Stack with this [tutorial](https://hashnode.com/post/react-tutorial-using-mern-stack-ciiyus9m700qqge53mer0isxz) and I'm bored with following step by step in tutorial. I want to make something cool, different. So I come up with this ideal.
+A SPA simple app show superhero images, specially The Flash family or relative characters.
 
-## Cheerio!
+The UI is similar to Pinterest with almost minimum feature:
+
+- Show superhere images in masonry view
+- Show specific image when hit the image in masonry view.
+- Show related images
