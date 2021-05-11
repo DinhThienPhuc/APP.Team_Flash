@@ -35,7 +35,7 @@
     "express": "^4.15.2",
     "gulp": "^4.0.2",
     "history": "^4.6.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "material-ui": "^0.18.1",
     "mongodb": "^3.6.2",
     "react": "^17.0.1",
